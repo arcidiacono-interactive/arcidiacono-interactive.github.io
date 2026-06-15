@@ -2,7 +2,7 @@
 <html lang="it">
 <head>
 <meta charset="UTF-8">
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -63,7 +63,7 @@ body::after {
   opacity: 1;
 }
 
-/* Evita il viola dei link visitati */
+/* Evita viola link visitati */
 a, a:visited, a:hover, a:active {
   color: #ffffff;
 }
@@ -73,36 +73,36 @@ a, a:visited, a:hover, a:active {
   position: relative;
   z-index: 3;
   max-width: 900px;
-  margin: 120px auto 60px;
+  margin: 140px auto 80px;
   padding: 0 20px;
-  line-height: 1.7;
+  line-height: 1.75;
 }
 
 /* Titoli */
 .press-title {
   text-align: center;
-  font-size: 1.4rem;
-  letter-spacing: 0.18em;
+  font-size: 1.6rem;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
 .press-subtitle {
   text-align: center;
-  font-size: 0.9rem;
-  letter-spacing: 0.16em;
+  font-size: 0.95rem;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #aaaaaa;
-  margin-bottom: 30px;
+  color: #bbbbbb;
+  margin-bottom: 40px;
 }
 
-/* SOTTO-MENU CONTESTUALE */
+/* SOTTO-MENU */
 .submenu {
   margin-top: 40px;
-  margin-bottom: 40px;
+  margin-bottom: 50px;
   display: flex;
   justify-content: center;
-  gap: 26px;
+  gap: 28px;
   font-size: 0.8rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -112,7 +112,7 @@ a, a:visited, a:hover, a:active {
 .submenu a {
   text-decoration: none;
   color: #ffffff;
-  opacity: 0.6;
+  opacity: 0.55;
   transition: opacity 0.25s ease;
 }
 
@@ -126,19 +126,40 @@ a, a:visited, a:hover, a:active {
 
 /* Sezioni */
 .section-title {
-  font-size: 1rem;
-  letter-spacing: 0.14em;
+  font-size: 1.05rem;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  margin-top: 50px;
-  margin-bottom: 10px;
+  margin-top: 60px;
+  margin-bottom: 12px;
   color: #ffffff;
 }
 
 .section-line {
-  width: 60px;
+  width: 70px;
   height: 2px;
   background: #ffffff;
-  margin-bottom: 25px;
+  margin-bottom: 28px;
+}
+
+/* Liste */
+ul {
+  padding-left: 0;
+  list-style-type: none;
+}
+
+ul li {
+  margin-bottom: 8px;
+}
+
+ul li a {
+  text-decoration: none;
+  font-weight: 600;
+  opacity: 0.85;
+  transition: opacity 0.25s ease;
+}
+
+ul li a:hover {
+  opacity: 1;
 }
 </style>
 </head>
@@ -167,69 +188,78 @@ a, a:visited, a:hover, a:active {
     <a href="legal.html">LEGAL</a>
   </div>
 
- <!-- SEZIONE 1 — LOGO -->
-<div class="section-title">Logo Ufficiale</div>
-<div class="section-line"></div>
+  <!-- SEZIONE 1 — LOGO -->
+  <div class="section-title">Logo Ufficiale</div>
+  <div class="section-line"></div>
 
-<p style="opacity:0.85; margin-bottom:14px;">
-  Versioni ufficiali del logo di Arcidiacono Interactive, disponibili in formato vettoriale e raster.
-</p>
+  <p style="opacity:0.85; margin-bottom:18px;">
+    Versioni ufficiali del logo di Arcidiacono Interactive, disponibili in formato vettoriale e raster.
+  </p>
 
-<ul style="list-style-type:none; padding-left:0; line-height:1.9;">
-  <li>
-    <a href="AI_logo_full.svg" download style="font-weight:600;">
-      • Logo SVG (vettoriale, alta qualità)
-    </a>
-  </li>
-  <li>
-    <a href="LOGO.png" download style="font-weight:600;">
-      • Logo PNG (trasparente, uso generico)
-    </a>
-  </li>
-</ul>
+  <ul style="line-height:1.9;">
+    <li>• <a href="AI_logo_full.svg" download>Logo SVG (vettoriale, alta qualità)</a></li>
+    <li>• <a href="LOGO.png" download>Logo PNG (trasparente, uso generico)</a></li>
+  </ul>
 
   <!-- SEZIONE 2 — KEY ART / SCREENSHOT -->
   <div class="section-title">Key Art & Screenshot</div>
   <div class="section-line"></div>
-  <p>Materiale visivo del progetto (placeholder per ora):</p>
-  <ul>
-    <li><a href="#">Key Art 01</a></li>
-    <li><a href="#">Key Art 02</a></li>
-    <li><a href="#">Screenshot 01</a></li>
-    <li><a href="#">Screenshot 02</a></li>
+
+  <p style="opacity:0.85; margin-bottom:14px;">
+    Materiale visivo del progetto (placeholder per ora).
+  </p>
+
+  <ul style="line-height:1.9;">
+    <li>• <a href="#">Key Art 01</a></li>
+    <li>• <a href="#">Key Art 02</a></li>
+    <li>• <a href="#">Screenshot 01</a></li>
+    <li>• <a href="#">Screenshot 02</a></li>
   </ul>
 
   <!-- SEZIONE 3 — DESCRIZIONE BREVE -->
   <div class="section-title">Descrizione Breve</div>
   <div class="section-line"></div>
-  <p><em>“Dopo la crepa, segue sempre una rinascita.”</em></p>
 
-  <!-- SEZIONE 4 — DESCRIZIONE LUNGA -->
+  <p style="font-style:italic; opacity:0.9;">
+    “Dopo la crepa, segue sempre una rinascita.”
+  </p>
+
+  <!-- SEZIONE 4 — DESCRIZIONE COMPLETA -->
   <div class="section-title">Descrizione Completa</div>
   <div class="section-line"></div>
-  <p>Il progetto di Arcidiacono Interactive nasce come esperienza narrativa e psicologica ad alto impatto emotivo. Ogni scena, ogni silenzio, ogni dettaglio è costruito per accompagnare il giocatore in un viaggio interiore, dove atmosfera, simbolismo e ritmo diventano linguaggio.</p>
+
+  <p style="opacity:0.9;">
+    Il progetto di Arcidiacono Interactive nasce come esperienza narrativa e psicologica ad alto impatto emotivo. Ogni scena, ogni silenzio, ogni dettaglio è costruito per accompagnare il giocatore in un viaggio interiore, dove atmosfera, simbolismo e ritmo diventano linguaggio.
+  </p>
 
   <!-- SEZIONE 5 — INFO GIOCO -->
   <div class="section-title">Informazioni sul Gioco</div>
   <div class="section-line"></div>
-  <ul>
-    <li>Genere: Esperienza narrativa psicologica</li>
-    <li>Piattaforma: PC (Steam) — altre TBD</li>
-    <li>Stato: In sviluppo</li>
-    <li>Data prevista: TBD</li>
-    <li>Lingue: Italiano, Inglese</li>
-    <li>Target: Giocatori interessati a narrativa, atmosfera e introspezione</li>
+
+  <ul style="line-height:1.9;">
+    <li>• Genere: Esperienza narrativa psicologica</li>
+    <li>• Piattaforma: PC (Steam) — altre TBD</li>
+    <li>• Stato: In sviluppo</li>
+    <li>• Data prevista: TBD</li>
+    <li>• Lingue: Italiano, Inglese</li>
+    <li>• Target: Giocatori interessati a narrativa, atmosfera e introspezione</li>
   </ul>
 
   <!-- SEZIONE 6 — INFO STUDIO -->
   <div class="section-title">Informazioni sullo Studio</div>
   <div class="section-line"></div>
-  <p>Arcidiacono Interactive è uno studio d’autore dedicato alla creazione di esperienze narrative e psicologiche. Ogni progetto nasce da una visione chiara, da un’emozione che merita spazio, forma e ritmo.</p>
+
+  <p style="opacity:0.9;">
+    Arcidiacono Interactive è uno studio d’autore dedicato alla creazione di esperienze narrative e psicologiche. Ogni progetto nasce da una visione chiara, da un’emozione che merita spazio, forma e ritmo.
+  </p>
 
   <!-- SEZIONE 7 — CONTATTI -->
   <div class="section-title">Contatti</div>
   <div class="section-line"></div>
-  <p>Email ufficiale: <strong>arcidiacono.interactive@gmail.com</strong></p>
+
+  <p style="opacity:0.9;">
+    Email ufficiale: <strong>arcidiacono.interactive@gmail.com</strong>
+  </p>
 
 </div>
 
