@@ -73,7 +73,7 @@ body::after {
   text-align: center;
 }
 
-/* LOGO CON FERITE ROSSE */
+/* LOGO FRATTURATO */
 .logo {
   font-size: 4rem;
   letter-spacing: 4px;
@@ -83,26 +83,40 @@ body::after {
   position: relative;
   opacity: 0;
   animation: fadeIn 2.2s ease-out forwards;
+  display: inline-flex;
 }
 
-/* Ferite rosse statiche */
+/* Parte sinistra del logo */
+.logo-left {
+  display: inline-block;
+}
+
+/* Parte destra del logo (leggermente spostata) */
+.logo-right {
+  display: inline-block;
+  transform: translateX(4px);
+}
+
+/* Crepa irregolare rossa */
 .logo::after {
   content: "";
   position: absolute;
-  inset: 0;
+  top: 0;
+  bottom: 0;
+  left: 58%; /* FRACTURE A DESTRA */
+  width: 3px;
+
   background-image:
     url("data:image/svg+xml;utf8,\
-    <svg xmlns='http://www.w3.org/2000/svg' width='600' height='150'>\
-      <path d='M10 40 Q60 10 120 50 T240 40 T360 60 T480 30' stroke='%23ff3b3b' stroke-width='2' fill='none'/>\
-      <path d='M80 90 Q140 60 200 100 T320 80 T440 110' stroke='%23ff3b3b' stroke-width='1.6' fill='none'/>\
-      <path d='M30 120 Q90 80 150 130 T300 120 T450 140' stroke='%23ff3b3b' stroke-width='1.4' fill='none'/>\
+    <svg xmlns='http://www.w3.org/2000/svg' width='6' height='200'>\
+      <path d='M3 0 L2 20 L4 40 L1 70 L5 100 L2 130 L4 160 L3 200' stroke='%23ff3b3b' stroke-width='2' fill='none'/>\
     </svg>");
-  background-size: cover;
+
   background-repeat: no-repeat;
-  background-position: center;
+  background-size: contain;
   mix-blend-mode: screen;
-  opacity: 0.18;
-  filter: blur(0.6px);
+  opacity: 0.55;
+  filter: blur(0.4px);
   pointer-events: none;
 }
 
@@ -169,8 +183,11 @@ body::after {
 
 <div class="center">
 
-  <!-- LOGO -->
-  <div class="logo">ARCIDIACONO INTERACTIVE</div>
+  <!-- LOGO FRATTURATO -->
+  <div class="logo">
+    <span class="logo-left">ARCIDIACO</span>
+    <span class="logo-right">NO INTERACTIVE</span>
+  </div>
 
   <!-- FRASE BILINGUE -->
   <div class="phrase-en">After the fracture, a rebirth always follows.</div>
