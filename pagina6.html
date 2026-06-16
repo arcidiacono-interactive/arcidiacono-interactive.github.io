@@ -101,27 +101,27 @@ body::after {
     content: "";
     position: absolute;
     left: 50%;
-    top: -12%;
-    width: 4px;
-    height: 130%;
+    top: -18%;
+    width: 6px;
+    height: 150%;
     background: linear-gradient(
         to bottom,
-        rgba(255,255,255,0.9) 0%,
-        rgba(255,80,80,0.55) 25%,
-        rgba(255,0,0,0.35) 50%,
-        rgba(255,80,80,0.55) 75%,
-        rgba(255,255,255,0.9) 100%
+        rgba(255,255,255,1) 0%,
+        rgba(255,120,120,0.85) 20%,
+        rgba(255,0,0,0.55) 45%,
+        rgba(255,120,120,0.85) 70%,
+        rgba(255,255,255,1) 100%
     );
     clip-path: polygon(
-        48% 0%, 52% 3%,
-        49% 10%, 54% 18%,
-        47% 30%, 53% 42%,
-        48% 55%, 52% 68%,
-        49% 82%, 53% 94%,
+        46% 0%, 54% 4%,
+        48% 12%, 56% 22%,
+        45% 35%, 55% 48%,
+        47% 62%, 56% 75%,
+        48% 88%, 54% 98%,
         50% 100%
     );
-    filter: blur(1.2px);
-    transform: rotate(calc(-6deg + (var(--r) * 3deg)));
+    filter: blur(2px);
+    transform: rotate(calc(-10deg + (var(--r) * 4deg)));
     opacity: 1;
     mix-blend-mode: screen;
     pointer-events: none;
