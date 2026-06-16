@@ -73,15 +73,37 @@ body::after {
   text-align: center;
 }
 
-/* Logo */
+/* LOGO CON FERITE ROSSE */
 .logo {
   font-size: 4rem;
   letter-spacing: 4px;
   font-weight: 700;
   margin-bottom: 25px;
   text-transform: uppercase;
+  position: relative;
   opacity: 0;
   animation: fadeIn 2.2s ease-out forwards;
+}
+
+/* Ferite rosse statiche */
+.logo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    url("data:image/svg+xml;utf8,\
+    <svg xmlns='http://www.w3.org/2000/svg' width='600' height='150'>\
+      <path d='M10 40 Q60 10 120 50 T240 40 T360 60 T480 30' stroke='%23ff3b3b' stroke-width='2' fill='none'/>\
+      <path d='M80 90 Q140 60 200 100 T320 80 T440 110' stroke='%23ff3b3b' stroke-width='1.6' fill='none'/>\
+      <path d='M30 120 Q90 80 150 130 T300 120 T450 140' stroke='%23ff3b3b' stroke-width='1.4' fill='none'/>\
+    </svg>");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  mix-blend-mode: screen;
+  opacity: 0.18;
+  filter: blur(0.6px);
+  pointer-events: none;
 }
 
 /* Frase bilingue */
