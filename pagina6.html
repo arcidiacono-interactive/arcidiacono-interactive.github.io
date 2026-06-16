@@ -2,11 +2,11 @@
 <html lang="it">
 <head>
 <meta charset="UTF-8">
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pagina 6</title>
+<title>Arcidiacono Interactive</title>
 
 <style>
 
@@ -28,34 +28,37 @@ body::before {
   width: 100%; height: 100%;
   pointer-events: none;
   background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
-  opacity: 0.12;
+  opacity: 0.10;
   z-index: 1;
 }
 
-/* Vignettatura D-SOFT + eco rossa iniziale */
+/* Aura psicologica + pulsazione emotiva */
 body::after {
   content: "";
   position: fixed;
   top: 0; left: 0;
   width: 100%; height: 100%;
   pointer-events: none;
+
   background:
-    radial-gradient(circle, rgba(255,0,0,0.12) 0%, rgba(0,0,0,0.55) 70%);
-  animation: vignetteFade 10s ease-out forwards, breathe 16s ease-in-out infinite;
+    radial-gradient(circle at 50% 40%, rgba(255,0,0,0.22) 0%, rgba(0,0,0,0.85) 60%, rgba(0,0,0,1) 100%);
+
+  animation: pulse 7.5s ease-in-out infinite, drift 22s ease-in-out infinite;
   z-index: 2;
 }
 
-/* L’eco rossa svanisce lentamente */
-@keyframes vignetteFade {
-  0%   { opacity: 1; }
+/* Pulsazione emotiva */
+@keyframes pulse {
+  0%   { opacity: 0.55; }
+  50%  { opacity: 0.78; }
   100% { opacity: 0.55; }
 }
 
-/* Vignettatura che respira */
-@keyframes breathe {
-  0%   { opacity: 0.55; }
-  50%  { opacity: 0.68; }
-  100% { opacity: 0.55; }
+/* Movimento mentale lentissimo */
+@keyframes drift {
+  0%   { transform: scale(1) translateY(0px); }
+  50%  { transform: scale(1.06) translateY(-8px); }
+  100% { transform: scale(1) translateY(0px); }
 }
 
 /* Contenitore centrale */
@@ -78,24 +81,36 @@ body::after {
   margin-bottom: 25px;
   text-transform: uppercase;
   opacity: 0;
-  animation: fadeIn 1.8s ease-out forwards;
+  animation: fadeIn 2.2s ease-out forwards;
 }
 
-/* Frase bilingue (EN grande, IT sotto) */
+/* Frase bilingue */
 .phrase-en {
   font-size: 1.4rem;
   opacity: 0;
   margin-bottom: 6px;
-  animation: fadeIn 2.4s ease-out forwards;
+  animation: fadeIn 2.8s ease-out forwards;
   animation-delay: 0.4s;
 }
 
 .phrase-it {
   font-size: 0.95rem;
   opacity: 0;
-  margin-bottom: 40px;
-  animation: fadeIn 2.4s ease-out forwards;
-  animation-delay: 0.8s;
+  margin-bottom: 35px;
+  animation: fadeIn 2.8s ease-out forwards;
+  animation-delay: 0.9s;
+}
+
+/* Micro-manifesto psicologico */
+.micro {
+  font-size: 0.85rem;
+  opacity: 0;
+  margin-bottom: 45px;
+  line-height: 1.6;
+  letter-spacing: 0.5px;
+  color: #cccccc;
+  animation: fadeIn 3.2s ease-out forwards;
+  animation-delay: 1.6s;
 }
 
 /* Menu */
@@ -104,18 +119,20 @@ body::after {
   gap: 28px;
   font-size: 0.9rem;
   opacity: 0;
-  animation: fadeIn 2.4s ease-out forwards;
-  animation-delay: 1.2s;
+  animation: fadeIn 3.2s ease-out forwards;
+  animation-delay: 2.2s;
 }
 
 .menu a {
   color: #fff;
   text-decoration: none;
-  transition: opacity 0.3s;
+  transition: opacity 0.4s, letter-spacing 0.4s;
+  opacity: 0.65;
 }
 
 .menu a:hover {
   opacity: 1;
+  letter-spacing: 1.5px;
 }
 
 /* Fade-in generico */
@@ -136,6 +153,13 @@ body::after {
   <!-- FRASE BILINGUE -->
   <div class="phrase-en">After the fracture, a rebirth always follows.</div>
   <div class="phrase-it">Dopo la crepa, segue sempre una rinascita.</div>
+
+  <!-- MICRO-MANIFESTO PSICOLOGICO -->
+  <div class="micro">
+    Pressione che cresce.<br>
+    Silenzi che pesano.<br>
+    Emozioni che non trovano spazio.
+  </div>
 
   <!-- MENU -->
   <div class="menu">
