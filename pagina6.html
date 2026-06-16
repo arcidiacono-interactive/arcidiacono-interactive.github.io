@@ -72,14 +72,31 @@ body::after {
     animation: fadeIn 2s forwards;
 }
 
+/* LETTERE */
 .fractured-title span {
     position: relative;
     display: inline-block;
     padding: 0 2px;
     transition: 0.4s ease;
+    filter: drop-shadow(0 0 2px rgba(255,0,0,0.25));
 }
 
-/* Ferita interna */
+/* INCISIONE PROFONDA */
+.fractured-title span::before {
+    content: "";
+    position: absolute;
+    left: 48%;
+    top: 0;
+    width: 6px;
+    height: 100%;
+    background: rgba(0,0,0,0.35);
+    filter: blur(2px);
+    opacity: 0.35;
+    transform: skewX(-6deg);
+    pointer-events: none;
+}
+
+/* CREPA ORGANICA */
 .fractured-title span::after {
     content: "";
     position: absolute;
@@ -123,7 +140,7 @@ body::after {
 .fractured-title span[data-i="10"] { transform: translateY(3px) rotate(1.2deg); --r:1; }
 .fractured-title span[data-i="11"] { transform: translateY(-2px) rotate(-1deg); --r:-2; }
 
-/* Hover: la ferita si apre leggermente */
+/* Hover: la ferita si apre */
 .fractured-title span:hover {
     transform: translateY(-6px) rotate(-2deg);
     text-shadow: 0 0 12px rgba(255, 0, 0, 0.35);
