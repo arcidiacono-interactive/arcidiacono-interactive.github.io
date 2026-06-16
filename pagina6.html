@@ -1,251 +1,117 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Expires" content="0">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Arcidiacono Interactive</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arcidiacono Interactive</title>
 
-<style>
-* { margin:0; padding:0; box-sizing:border-box; }
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      text-align: center;
+      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
+    }
 
-body {
-  background:#000;
-  color:#fff;
-  font-family:"Montserrat", sans-serif;
-  overflow:hidden;
-}
+    .container {
+      padding-top: 10vh;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
 
-/* AURA + GRANA */
-body::before {
-  content:"";
-  position:fixed;
-  inset:0;
-  background-image:url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
-  opacity:0.10;
-  pointer-events:none;
-  z-index:1;
-}
+    .logo-fractured {
+      width: 80%;
+      max-width: 900px;
+      margin-bottom: 25px;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+      filter: drop-shadow(0 0 25px rgba(255, 60, 60, 0.25));
+    }
 
-body::after {
-  content:"";
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  background:radial-gradient(circle at 50% 40%, rgba(255,0,0,0.22), rgba(0,0,0,0.9) 60%);
-  animation:pulse 7s ease-in-out infinite;
-  z-index:2;
-}
+    .subtitle {
+      letter-spacing: 6px;
+      font-weight: 300;
+      margin-top: -10px;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      opacity: 0.9;
+    }
 
-@keyframes pulse {
-  0% { opacity:0.55; }
-  50% { opacity:0.78; }
-  100% { opacity:0.55; }
-}
+    .tagline {
+      margin-top: 20px;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
 
-/* CENTRO PAGINA */
-.center {
-  position:relative;
-  z-index:3;
-  height:auto;
-  padding-top:120px;
-  padding-bottom:80px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-}
+    .tagline .ita {
+      opacity: 0.9;
+      font-size: 0.95rem;
+    }
 
-/* FRACTURED TITLE */
-.fractured-title {
-    font-family: 'Anton', sans-serif;
-    font-size: 6rem;
-    letter-spacing: 6px;
-    display: flex;
-    gap: 4px;
-    position: relative;
-    margin-bottom: 25px;
-    opacity: 0;
-    animation: fadeIn 2s forwards;
-}
+    .text-block {
+      margin-top: 40px;
+      font-size: 1rem;
+      line-height: 1.8;
+      opacity: 0.9;
+    }
 
-/* LETTERE */
-.fractured-title span {
-    position: relative;
-    display: inline-block;
-    padding: 0 2px;
-    transition: 0.4s ease;
-    filter: drop-shadow(0 0 2px rgba(255,0,0,0.25));
-}
+    .menu {
+      margin-top: 60px;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
 
-/* INCISIONE PROFONDA */
-.fractured-title span::before {
-    content: "";
-    position: absolute;
-    left: 48%;
-    top: 0;
-    width: 6px;
-    height: 100%;
-    background: rgba(0,0,0,0.35);
-    filter: blur(2px);
-    opacity: 0.35;
-    transform: skewX(-6deg);
-    pointer-events: none;
-}
+    .menu a {
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
 
-/* CREPA ORGANICA */
-.fractured-title span::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    top: -18%;
-    width: 6px;
-    height: 150%;
-    background: linear-gradient(
-        to bottom,
-        rgba(255,255,255,1) 0%,
-        rgba(255,120,120,0.85) 20%,
-        rgba(255,0,0,0.55) 45%,
-        rgba(255,120,120,0.85) 70%,
-        rgba(255,255,255,1) 100%
-    );
-    clip-path: polygon(
-        46% 0%, 54% 4%,
-        48% 12%, 56% 22%,
-        45% 35%, 55% 48%,
-        47% 62%, 56% 75%,
-        48% 88%, 54% 98%,
-        50% 100%
-    );
-    filter: blur(2px);
-    transform: rotate(calc(-10deg + (var(--r) * 4deg)));
-    opacity: 1;
-    mix-blend-mode: screen;
-    pointer-events: none;
-}
+    .menu a:hover {
+      color: #ff3c3c;
+    }
 
-/* Micro disallineamenti psicologici */
-.fractured-title span[data-i="1"]  { transform: translateY(-3px) rotate(-1deg); --r:1; }
-.fractured-title span[data-i="2"]  { transform: translateY(2px) rotate(1deg);  --r:2; }
-.fractured-title span[data-i="3"]  { transform: translateY(-1px) rotate(-0.5deg); --r:-1; }
-.fractured-title span[data-i="4"]  { transform: translateY(3px) rotate(1.2deg); --r:1; }
-.fractured-title span[data-i="5"]  { transform: translateY(-2px) rotate(-1deg); --r:-2; }
-.fractured-title span[data-i="6"]  { transform: translateY(1px) rotate(0.5deg); --r:1; }
-.fractured-title span[data-i="7"]  { transform: translateY(-3px) rotate(-1deg); --r:-1; }
-.fractured-title span[data-i="8"]  { transform: translateY(2px) rotate(1deg); --r:2; }
-.fractured-title span[data-i="9"]  { transform: translateY(-1px) rotate(-0.5deg); --r:-1; }
-.fractured-title span[data-i="10"] { transform: translateY(3px) rotate(1.2deg); --r:1; }
-.fractured-title span[data-i="11"] { transform: translateY(-2px) rotate(-1deg); --r:-2; }
-
-/* Hover: la ferita si apre */
-.fractured-title span:hover {
-    transform: translateY(-6px) rotate(-2deg);
-    text-shadow: 0 0 12px rgba(255, 0, 0, 0.35);
-}
-
-/* INTERACTIVE */
-.logo-interactive {
-  font-size:1.1rem;
-  letter-spacing:3px;
-  margin-left:14px;
-  opacity:0;
-  animation:fadeIn 2.4s forwards;
-}
-
-/* Testo */
-.phrase-en {
-  font-size:1.4rem;
-  margin-top:18px;
-  opacity:0;
-  animation:fadeIn 2.8s forwards;
-  animation-delay:0.4s;
-}
-
-.phrase-it {
-  font-size:0.95rem;
-  margin-bottom:35px;
-  opacity:0;
-  animation:fadeIn 2.8s forwards;
-  animation-delay:0.9s;
-}
-
-.micro {
-  font-size:0.85rem;
-  color:#ccc;
-  line-height:1.6;
-  margin-bottom:45px;
-  opacity:0;
-  animation:fadeIn 3.2s forwards;
-  animation-delay:1.6s;
-}
-
-.menu {
-  display:flex;
-  gap:28px;
-  opacity:0;
-  animation:fadeIn 3.2s forwards;
-  animation-delay:2.2s;
-}
-
-.menu a {
-  color:#fff;
-  text-decoration:none;
-  opacity:0.65;
-  transition:0.4s;
-}
-
-.menu a:hover {
-  opacity:1;
-  letter-spacing:1.5px;
-}
-
-@keyframes fadeIn { to { opacity:1; } }
-</style>
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+  </style>
 </head>
-
 <body>
 
-<div class="center">
+  <div class="container">
 
-  <!-- FRACTURED ARCIDIACONO -->
-  <div class="fractured-title">
-      <span data-i="1">A</span>
-      <span data-i="2">R</span>
-      <span data-i="3">C</span>
-      <span data-i="4">I</span>
-      <span data-i="5">D</span>
-      <span data-i="6">I</span>
-      <span data-i="7">A</span>
-      <span data-i="8">C</span>
-      <span data-i="9">O</span>
-      <span data-i="10">N</span>
-      <span data-i="11">O</span>
+    <!-- Logo fratturato -->
+    <img src="arcidiacono-fracture-fused.png"
+         alt="Arcidiacono Interactive"
+         class="logo-fractured">
+
+    <h2 class="subtitle">INTERACTIVE</h2>
+
+    <p class="tagline">
+      After the fracture, a rebirth always follows.<br>
+      <span class="ita">Dopo la crepa, segue sempre una rinascita.</span>
+    </p>
+
+    <div class="text-block">
+      <p>Pressione che cresce.</p>
+      <p>Silenzi che pesano.</p>
+      <p>Emozioni che non trovano spazio.</p>
+    </div>
+
+    <nav class="menu">
+      <a href="about.html">ABOUT</a> |
+      <a href="team.html">TEAM</a> |
+      <a href="presskit.html">PRESS KIT</a> |
+      <a href="devlog.html">DEVLOG</a> |
+      <a href="roadmap.html">ROADMAP</a> |
+      <a href="socialhub.html">SOCIAL HUB</a> |
+      <a href="legal.html">LEGAL</a>
+    </nav>
+
   </div>
 
-  <div class="logo-interactive">INTERACTIVE</div>
-
-  <div class="phrase-en">After the fracture, a rebirth always follows.</div>
-  <div class="phrase-it">Dopo la crepa, segue sempre una rinascita.</div>
-
-  <div class="micro">
-    Pressione che cresce.<br>
-    Silenzi che pesano.<br>
-    Emozioni che non trovano spazio.
-  </div>
-
-  <div class="menu">
-    <a href="about.html">ABOUT</a>
-    <a href="team.html">TEAM</a>
-    <a href="presskit.html">PRESS KIT</a>
-    <a href="devlog.html">DEVLOG</a>
-    <a href="roadmap.html">ROADMAP</a>
-    <a href="social.html">SOCIAL HUB</a>
-    <a href="legal.html">LEGAL</a>
-  </div>
-
-</div>
 </body>
 </html>
