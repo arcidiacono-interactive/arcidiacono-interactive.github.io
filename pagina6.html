@@ -81,31 +81,32 @@ body::after {
 
 /* Ferita interna */
 .fractured-title span::after {
-   content: "";
+    content: "";
     position: absolute;
     left: 50%;
-    top: -8%;
-    width: 3px;
-    height: 116%;
+    top: -12%;
+    width: 4px;
+    height: 130%;
     background: linear-gradient(
         to bottom,
-        rgba(255,255,255,0.85) 0%,
-        rgba(255,255,255,0.35) 25%,
-        rgba(255,0,0,0.25) 50%,
-        rgba(255,255,255,0.35) 75%,
-        rgba(255,255,255,0.85) 100%
+        rgba(255,255,255,0.9) 0%,
+        rgba(255,80,80,0.55) 25%,
+        rgba(255,0,0,0.35) 50%,
+        rgba(255,80,80,0.55) 75%,
+        rgba(255,255,255,0.9) 100%
     );
     clip-path: polygon(
-        48% 0%, 52% 4%, 
-        49% 12%, 53% 20%, 
-        47% 32%, 52% 44%, 
-        48% 58%, 53% 70%, 
-        49% 82%, 52% 94%, 
+        48% 0%, 52% 3%,
+        49% 10%, 54% 18%,
+        47% 30%, 53% 42%,
+        48% 55%, 52% 68%,
+        49% 82%, 53% 94%,
         50% 100%
     );
-    filter: blur(0.6px);
-    transform: rotate(calc(-4deg + (var(--r) * 2deg)));
-    opacity: 0.9;
+    filter: blur(1.2px);
+    transform: rotate(calc(-6deg + (var(--r) * 3deg)));
+    opacity: 1;
+    mix-blend-mode: screen;
     pointer-events: none;
 }
 
