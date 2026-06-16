@@ -2,47 +2,44 @@
 <html lang="it">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Expires" content="0">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Arcidiacono Interactive</title>
 
 <style>
+/* BASE */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-/* Reset + sfondo */
 body {
   margin: 0;
   padding: 0;
   background: #000;
   color: #fff;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   overflow: hidden;
 }
 
-/* Grana cinematografica */
+/* GRANA + AURA */
 body::before {
   content: "";
   position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+  inset: 0;
   pointer-events: none;
   background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
   opacity: 0.10;
   z-index: 1;
 }
 
-/* Aura psicologica */
 body::after {
   content: "";
   position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+  inset: 0;
   pointer-events: none;
-
   background:
     radial-gradient(circle at 50% 40%, rgba(255,0,0,0.22) 0%, rgba(0,0,0,0.85) 60%, rgba(0,0,0,1) 100%);
-
   animation: pulse 7.5s ease-in-out infinite, drift 22s ease-in-out infinite;
   z-index: 2;
 }
@@ -59,7 +56,7 @@ body::after {
   100% { transform: scale(1) translateY(0px); }
 }
 
-/* Contenitore centrale */
+/* LAYOUT CENTRALE */
 .center {
   position: relative;
   z-index: 3;
@@ -71,77 +68,128 @@ body::after {
   text-align: center;
 }
 
-/* LOGO FRATTURATO */
+/* LOGO */
 .logo {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 6px;
   font-size: 4rem;
-  letter-spacing: 4px;
   font-weight: 700;
-  margin-bottom: 25px;
+  letter-spacing: 4px;
   text-transform: uppercase;
-  position: relative;
   opacity: 0;
   animation: fadeIn 2.2s ease-out forwards;
+}
+
+/* ARCIDIACONO: lettere con ferita interna */
+.arc-word {
   display: inline-flex;
-  gap: 5px;
+  gap: 2px;
 }
 
-/* Ogni lettera fratturata */
-.fractured {
+/* ogni lettera è un blocco unico */
+.letter {
   position: relative;
   display: inline-block;
-  overflow: visible;
+  color: #ffffff;
+  /* trucco per poter usare background-clip: text */
+  background: #ffffff;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-/* Le due metà della lettera */
-.fractured span {
-  display: inline-block;
-  position: relative;
-}
-
-/* Parte sinistra */
-.left {
-  clip-path: polygon(0 0, 48% 0, 46% 100%, 0 100%);
-}
-
-/* Parte destra */
-.right {
-  clip-path: polygon(52% 0, 100% 0, 100% 100%, 54% 100%);
-  transform: translateX(5px); /* separazione 4–5px */
-}
-
-/* Ferita rossa opaca */
-.fractured::after {
+/* ferita interna: pseudo-elemento sopra il glifo, ma dentro la forma */
+.letter::after {
   content: "";
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 48%;
-  width: 2px;
-
+  inset: 0;
+  pointer-events: none;
+  mix-blend-mode: normal;
+  opacity: 1;
+  /* pattern base: bianco + linea rossa sottile obliqua lunga */
   background-image:
     linear-gradient(
-      to bottom right,
-      rgba(255, 50, 50, 0.18) 0%,
-      rgba(255, 50, 50, 0.20) 25%,
-      rgba(255, 50, 50, 0.17) 50%,
-      rgba(255, 50, 50, 0.20) 75%,
-      rgba(255, 50, 50, 0.18) 100%
+      -65deg,
+      transparent 0%,
+      transparent 46%,
+      rgba(255, 40, 40, 0.18) 48%,
+      rgba(255, 40, 40, 0.20) 50%,
+      rgba(255, 40, 40, 0.18) 52%,
+      transparent 54%,
+      transparent 100%
     );
-
-  transform: skewX(-8deg); /* obliquo */
-  filter: blur(0.3px); /* zig-zag microscopico */
-  pointer-events: none;
+  /* leggero blur per togliere rigidità */
+  filter: blur(0.3px);
+  /* la ferita segue il glifo perché è “clippata” dal testo */
+  -webkit-mask-image: linear-gradient(#000, #000);
+  mask-image: linear-gradient(#000, #000);
 }
 
-/* Fade-in */
+/* variazione posizione ferita per-lettera (più organica) */
+.letter[data-shift="1"]::after {
+  background-position: -4px 0;
+  background-size: 140% 140%;
+}
+.letter[data-shift="2"]::after {
+  background-position: 6px 2px;
+  background-size: 130% 130%;
+}
+.letter[data-shift="3"]::after {
+  background-position: -8px -3px;
+  background-size: 150% 150%;
+}
+.letter[data-shift="4"]::after {
+  background-position: 3px -4px;
+  background-size: 135% 135%;
+}
+.letter[data-shift="5"]::after {
+  background-position: -5px 4px;
+  background-size: 145% 145%;
+}
+.letter[data-shift="6"]::after {
+  background-position: 7px 1px;
+  background-size: 138% 138%;
+}
+.letter[data-shift="7"]::after {
+  background-position: -6px 3px;
+  background-size: 142% 142%;
+}
+.letter[data-shift="8"]::after {
+  background-position: 5px -2px;
+  background-size: 148% 148%;
+}
+.letter[data-shift="9"]::after {
+  background-position: -3px -5px;
+  background-size: 132% 132%;
+}
+.letter[data-shift="10"]::after {
+  background-position: 4px 5px;
+  background-size: 152% 152%;
+}
+.letter[data-shift="11"]::after {
+  background-position: -7px 1px;
+  background-size: 136% 136%;
+}
+
+/* INTERACTIVE integro */
+.logo-interactive {
+  font-size: 1.1rem;
+  letter-spacing: 3px;
+  margin-left: 14px;
+  color: #ffffff;
+}
+
+/* FADE-IN GENERICO */
 @keyframes fadeIn {
   to { opacity: 1; }
 }
 
-/* Frase bilingue */
+/* FRASE BILINGUE */
 .phrase-en {
   font-size: 1.4rem;
   opacity: 0;
+  margin-top: 18px;
   margin-bottom: 6px;
   animation: fadeIn 2.8s ease-out forwards;
   animation-delay: 0.4s;
@@ -155,7 +203,7 @@ body::after {
   animation-delay: 0.9s;
 }
 
-/* Micro-manifesto */
+/* MICRO-MANIFESTO */
 .micro {
   font-size: 0.85rem;
   opacity: 0;
@@ -167,7 +215,7 @@ body::after {
   animation-delay: 1.6s;
 }
 
-/* Menu */
+/* MENU */
 .menu {
   display: flex;
   gap: 28px;
@@ -189,32 +237,55 @@ body::after {
   letter-spacing: 1.5px;
 }
 
+/* RESPONSIVE MINIMO */
+@media (max-width: 768px) {
+  .logo {
+    font-size: 2.6rem;
+    letter-spacing: 2px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .logo-interactive {
+    margin-left: 0;
+    margin-top: 6px;
+    font-size: 0.9rem;
+  }
+  .phrase-en {
+    font-size: 1.1rem;
+  }
+  .phrase-it {
+    font-size: 0.9rem;
+  }
+  .menu {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+  }
+}
 </style>
 </head>
 
 <body>
-
 <div class="center">
 
-  <!-- LOGO FRATTURATO -->
+  <!-- LOGO -->
   <div class="logo">
+    <div class="arc-word">
+      <!-- ARCIDIACONO con ferita interna variabile -->
+      <span class="letter" data-shift="1">A</span>
+      <span class="letter" data-shift="2">R</span>
+      <span class="letter" data-shift="3">C</span>
+      <span class="letter" data-shift="4">I</span>
+      <span class="letter" data-shift="5">D</span>
+      <span class="letter" data-shift="6">I</span>
+      <span class="letter" data-shift="7">A</span>
+      <span class="letter" data-shift="8">C</span>
+      <span class="letter" data-shift="9">O</span>
+      <span class="letter" data-shift="10">N</span>
+      <span class="letter" data-shift="11">O</span>
+    </div>
 
-    <!-- ARCIDIACONO fratturato -->
-    <span class="fractured"><span class="left">A</span><span class="right">A</span></span>
-    <span class="fractured"><span class="left">R</span><span class="right">R</span></span>
-    <span class="fractured"><span class="left">C</span><span class="right">C</span></span>
-    <span class="fractured"><span class="left">I</span><span class="right">I</span></span>
-    <span class="fractured"><span class="left">D</span><span class="right">D</span></span>
-    <span class="fractured"><span class="left">I</span><span class="right">I</span></span>
-    <span class="fractured"><span class="left">A</span><span class="right">A</span></span>
-    <span class="fractured"><span class="left">C</span><span class="right">C</span></span>
-    <span class="fractured"><span class="left">O</span><span class="right">O</span></span>
-    <span class="fractured"><span class="left">N</span><span class="right">N</span></span>
-    <span class="fractured"><span class="left">O</span><span class="right">O</span></span>
-
-    <!-- INTERACTIVE integro -->
-    <span style="margin-left:18px;">INTERACTIVE</span>
-
+    <div class="logo-interactive">INTERACTIVE</div>
   </div>
 
   <!-- FRASE BILINGUE -->
@@ -240,6 +311,5 @@ body::after {
   </div>
 
 </div>
-
 </body>
 </html>
