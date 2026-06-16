@@ -15,6 +15,15 @@ body {
   overflow:hidden;
 }
 
+/* HEADER ROSSO */
+.header {
+  background:#8b0000;
+  padding:20px;
+  text-align:center;
+  font-size:2rem;
+  font-weight:700;
+}
+
 /* AURA + GRANA */
 body::before {
   content:"";
@@ -45,7 +54,7 @@ body::after {
 .center {
   position:relative;
   z-index:3;
-  height:100vh;
+  height:calc(100vh - 80px);
   display:flex;
   flex-direction:column;
   justify-content:center;
@@ -73,8 +82,6 @@ body::after {
   position:relative;
   display:inline-block;
   color:#fff;
-  --shift:0px;
-  --rot:0deg;
 }
 
 /* DUE META' DELLA LETTERA */
@@ -91,14 +98,14 @@ body::after {
 /* META' SINISTRA */
 .left {
   clip-path:polygon(0 0, 50% 0, 48% 100%, 0 100%);
-  transform:translateX(calc(var(--shift) * -1)) rotate(calc(var(--rot) * -1));
+  transform:translateX(0) rotate(0);
   transition:0.8s ease;
 }
 
 /* META' DESTRA */
 .right {
   clip-path:polygon(52% 0, 100% 0, 100% 100%, 54% 100%);
-  transform:translateX(var(--shift)) rotate(var(--rot));
+  transform:translateX(0) rotate(0);
   transition:0.8s ease;
 }
 
@@ -195,6 +202,9 @@ body::after {
 </head>
 
 <body>
+
+<div class="header">Arcidiacono Interactive</div>
+
 <div class="center">
 
   <div class="logo">
