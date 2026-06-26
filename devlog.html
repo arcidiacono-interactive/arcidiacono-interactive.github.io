@@ -63,7 +63,7 @@ body::after {
   opacity: 1;
 }
 
-/* Evita il viola dei link visitati */
+/* Evita viola link visitati */
 a, a:visited, a:hover, a:active {
   color: #ffffff;
 }
@@ -78,11 +78,12 @@ a, a:visited, a:hover, a:active {
   line-height: 1.7;
 }
 
-/* Titoli */
+/* ⭐ TITOLI POTENZIATI */
 .devlog-title {
   text-align: center;
-  font-size: 1.4rem;
-  letter-spacing: 0.18em;
+  font-size: 1.55rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   margin-bottom: 6px;
 }
@@ -90,16 +91,17 @@ a, a:visited, a:hover, a:active {
 .devlog-subtitle {
   text-align: center;
   font-size: 0.9rem;
-  letter-spacing: 0.16em;
+  font-weight: 500;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: #aaaaaa;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 
 /* SOTTO-MENU */
 .submenu {
-  margin-top: 40px;
-  margin-bottom: 40px;
+  margin-top: 20px;
+  margin-bottom: 50px;
   display: flex;
   justify-content: center;
   gap: 26px;
@@ -124,37 +126,51 @@ a, a:visited, a:hover, a:active {
   opacity: 1;
 }
 
+/* INTRO */
+.devlog-intro {
+  font-size: 1rem;
+  color: #e0e0e0;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 50px;
+  line-height: 1.8;
+}
+
 /* Categorie Devlog */
 .devlog-section {
-  margin-top: 40px;
-  margin-bottom: 35px;
+  margin-top: 50px;
+  margin-bottom: 40px;
 }
 
 .devlog-section-title {
-  font-size: 0.95rem;
-  letter-spacing: 0.16em;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: #dddddd;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
   border-left: 2px solid #ffffff;
   padding-left: 10px;
 }
 
 /* Lista entry */
 .devlog-entry {
-  margin-bottom: 14px;
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
 .devlog-entry-title {
   font-size: 0.95rem;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.10em;
+  font-weight: 600;
 }
 
 .devlog-entry-meta {
   font-size: 0.8rem;
   color: #aaaaaa;
-  margin-bottom: 3px;
+  margin-bottom: 4px;
 }
 
 .devlog-entry a {
@@ -164,6 +180,7 @@ a, a:visited, a:hover, a:active {
 .devlog-entry-desc {
   font-size: 0.9rem;
   color: #cccccc;
+  margin-top: 4px;
 }
 </style>
 </head>
@@ -191,11 +208,12 @@ a, a:visited, a:hover, a:active {
     <a href="social.html">SOCIAL</a>
   </div>
 
-  <p>
-    Questo devlog raccoglie l’evoluzione del progetto nel tempo: decisioni tecniche, scelte estetiche,
-    cambi di direzione e momenti chiave dello sviluppo. Le voci sono organizzate per aree tematiche,
-    così da seguire facilmente i filoni principali del lavoro.
-  </p>
+  <!-- INTRO POTENZIATA -->
+  <div class="devlog-intro">
+    Questo devlog raccoglie l’evoluzione del progetto nel tempo: scelte tecniche, direzione estetica,
+    struttura narrativa e momenti chiave dello sviluppo.  
+    Ogni voce è un frammento del percorso emotivo e creativo che sta dando forma al mondo di BOOS.
+  </div>
 
   <!-- CATEGORIA: REGIONE 4 -->
   <div class="devlog-section">
@@ -247,7 +265,7 @@ a, a:visited, a:hover, a:active {
     </div>
 
     <div class="devlog-entry">
-      <div class="devlog-entry-meta">Devlog #8 · 2025-11-19</div>
+      <div class="devlog-entry-meta">Devlog #8 · 2026-04-19</div>
       <a href="devlog-8.html">
         <div class="devlog-entry-title">Flicker, Gain e tensione visiva</div>
       </a>
